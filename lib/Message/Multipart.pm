@@ -219,27 +219,27 @@ This module can create multipart message.Also can send it.
 
 =head1 SYNOPSIS
 
-use utf8;
-use Message::Multipart;
+    use utf8;
+    use Message::Multipart;
 
-my $m = Message::Multipart->new( 'alternative' );
-$m->part(
-    content_type        => 'plain',
-    content_encoding    => '7bit',
-    charset             => 'ISO-2022-jp',
-    content             => $content
-);
-$m->part(
-    content_type        => 'html',
-    content_encoding    => 'qp',
-    charset             => 'utf8',
-    content             => $html
-);
-$m->from( 'mail_from@example.com' );
-$m->to( 'mail_to1@example.com','mail_to2@example.com' );
-$m->cc( 'mail_cc@example.com' );
-$m->bcc( 'mail_bcc@example.com' );
-$m->send;
+    my $m = Message::Multipart->new( 'alternative' );
+    $m->part(
+        content_type        => 'plain',
+        content_encoding    => '7bit',
+        charset             => 'ISO-2022-jp',
+        content             => $content
+    );
+    $m->part(
+        content_type        => 'html',
+        content_encoding    => 'qp',
+        charset             => 'utf8',
+        content             => $html
+    );
+    $m->from( 'mail_from@example.com' );
+    $m->to( 'mail_to1@example.com','mail_to2@example.com' );
+    $m->cc( 'mail_cc@example.com' );
+    $m->bcc( 'mail_bcc@example.com' );
+    $m->send;
 
 =head1 METHOD
 
@@ -247,9 +247,9 @@ $m->send;
 
     require multipart subtype as argument.
         subtypes are...
-            > 'mixed'
-            > 'alternative'
-            > 'parallel'
+            'mixed'
+            'alternative'
+            'parallel'
 
 =head2 $m->part
 
@@ -291,6 +291,7 @@ $m->send;
         content_encoding    => '7bit',
         content             => $child->as_string
     );
+
 =head1 AUTHOR
 
 Tooru Iwsaki < rockbone.g{at}gmail.com >
@@ -301,3 +302,5 @@ This software is copyright (c) 2013 by Tooru Iwasaki
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
+
+=cut
